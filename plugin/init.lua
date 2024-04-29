@@ -56,7 +56,7 @@ local get_directories = function()
 	return folders
 end
 
----The switching of the workspaces
+---The switching between workspaces
 local workspace_switcher = function()
 	return wezterm.action_callback(function(window, pane)
 		local workspaces = get_directories()
@@ -108,6 +108,11 @@ local workspace_switcher = function()
 	end)
 end
 
+---List the active workspaces
+local active_workspaces = function()
+	return act.ShowLauncherArgs { flags = "FUZZY|WORKSPACES" }
+end
+
 ---Configure the default key bindings
 ---@param config table
 local configure = function(config)
@@ -120,7 +125,7 @@ local configure = function(config)
 	table.insert(config.keys, {
 		key = "s",
 		mods = "LEADER",
-		action = wezterm.action.ShowLauncherArgs { flags = "FUZZY|TABS" }
+		action = active_workspaces()
 	})
 end
 
@@ -133,5 +138,6 @@ end
 return {
 	configure = configure,
 	set_projects = set_projects,
-	switch_workspace = workspace_switcher
+	switch_workspace = workspace_switcher,
+	active_workspaces = active_workspaces
 }

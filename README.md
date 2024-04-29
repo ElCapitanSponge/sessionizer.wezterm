@@ -4,6 +4,10 @@
 
 A tmux like sessionizer for Wezterm that was inspired by [ThePrimeagen's tmux-sessionizer](https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer)
 
+The sessionizer allows for opening of windows/sessions based on the passed in
+directories, as well as fast and intuative switching between active
+workspaces/sessions
+
 ## Setup
 
 An example configuration calling the plugin
@@ -54,6 +58,9 @@ local projects = {
 
 To display the sessionizer all you have to do is press the key combination of
 `LEADER` + `f`
+
+To display the active windows/sessions all you have to do is press the key
+combination of `LEADER` + `s`
 
 ## Change keybinding
 
